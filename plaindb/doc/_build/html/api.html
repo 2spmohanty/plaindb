@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plain DB API reference &#8212; plaindb 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release Notes" href="release.html" />
+    <link rel="prev" title="Usage" href="usage.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="plain-db-api-reference">
+<h1>Plain DB API reference<a class="headerlink" href="#plain-db-api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-core">
+<span id="core-module"></span><h2>“Core” module<a class="headerlink" href="#module-core" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.customlogger">
+<code class="sig-prename descclassname">core.</code><code class="sig-name descname">customlogger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log_file</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.customlogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>customlogger Generates a custom Logging mechanism at INFO or DEBUG level.
+The Error logs are marked as ERROR.
+In case the user misses the log file name, it generates a default file by name VM_Restore_dmYHMS.log</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_level</strong> – </p></li>
+<li><p><strong>log_file</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Custom logger to console and a file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.plainDB">
+<em class="property">class </em><code class="sig-prename descclassname">core.</code><code class="sig-name descname">plainDB</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.plainDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>plainDB is  classy blueprint for the plain db.
+Currently this supports 2 version.
+A csv (default) or a json based database file is created.</p>
+<dl class="py method">
+<dt id="core.plainDB.blow">
+<code class="sig-name descname">blow</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.plainDB.blow" title="Permalink to this definition">¶</a></dt>
+<dd><p>blow Destroys the database instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>logger</strong> – A logger object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.plainDB.query">
+<code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span></em>, <em class="sig-param"><span class="n">querytype</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.plainDB.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>query function initiate DML function on the table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – The instance of the object.</p></li>
+<li><p><strong>logger</strong> – A logger object.</p></li>
+<li><p><strong>querytype</strong> – select/insert/update.</p></li>
+<li><p><strong>parameters</strong> – name/phone/address</p></li>
+</ul>
+</dd>
+</dl>
+<p>:returns : A status code and a response.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">plaindb</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plain DB API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-core">“Core” module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release Notes</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="usage.html" title="previous chapter">Usage</a></li>
+      <li>Next: <a href="release.html" title="next chapter">Release Notes</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Animal Logic.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

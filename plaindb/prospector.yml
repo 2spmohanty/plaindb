@@ -1,0 +1,70 @@
+strictness: low
+
+test-warnings: false
+doc-warnings: true
+
+
+ignore-paths:
+  - docs/
+  - settings/
+
+#ignore-patterns:
+#  - /migrations/
+
+
+pep8:
+  full: true
+  options:
+    max-line-length: 100
+
+pylint:
+  options:
+    docstring-min-length: 20
+    dummy-variables-rgx: '_$|__$|dummy'
+    max-line-length: 100
+  disable:
+    - inconsistent-return-statements
+    # We need to adapt our isot config
+    - relative-beyond-top-level
+
+mccabe:
+  run: false
+
+pep257:
+  run: true
+  disable:
+    # These ones are ignored because the `missing-docstring` is checked
+    # by `pylint` and it has an option called `docstring-min-length`
+    # which is set to 20. So, methods that are < 20 lines do not
+    # require docstring. In this case, `pep257` will fail because it
+    # will say the docstring is required.
+    - D100  # Missing docstring in public module
+    - D101  # Missing docstring in public class
+    - D102  # Missing docstring in public method
+    - D104
+    - D105
+    - D106  # Missing docstring in public nested class
+    - D107  # Missing docstring in __init__
+
+    - D202  # No blank lines allowed after function docstring (found 1)
+    - D211
+    - D104
+    - D202  # No blank lines allowed after function docstring
+    - D212  # Multi-line docstring summary should start at the first line
+
+    # pydocstyle
+    - D403  # First word of the first line should be properly capitalized ('Github', not 'GitHub')
+    - D406  # Section name should end with a newline ('Examples', not 'Examples::')
+    - D407  # Missing dashed underline after section ('Examples')
+    - D412  # No blank lines allowed between a section header and its content ('Examples')
+    - D413  # Missing blank line after last section ('Examples')
+
+    # WAM - comment styles ...
+    - D213
+    - D411
+    - D415
+
+pyflakes:
+  disable:
+    - F999
+

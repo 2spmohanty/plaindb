@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage &#8212; plaindb 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plain DB API reference" href="api.html" />
+    <link rel="prev" title="Welcome to plaindb’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="help">
+<h2>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ python ../plaindb/app.py -h
+usage: app.py [-h] [-n NAME] [-a ADDRESS] [-p PHONE] -f FTYPE [-v VALUE] [-o]
+              (-i | -q | -u | -b)
+
+This is a complex db of the world that&#39;s so simple.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  Name of the Person.
+  -a ADDRESS, --address ADDRESS
+                        Address of the Person.
+  -p PHONE, --phone PHONE
+                        Phone Number of the Person.
+  -f FTYPE, --file FTYPE
+                        Core Database File Type. json/csv. Default is csv.
+  -v VALUE, --value VALUE
+                        New Value to be passed with -e/--edit option.
+  -o, --out             Display the result in a web page. Used with -q option.
+  -i, --insert          Insert Records to the DB.
+  -q, --query           Query Records of the Person.
+  -u, --update          Update the Record of the Person.
+  -b, --blow            With power comes responsibility. This blows your
+                        database.
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-commands">
+<h2>Sample Commands<a class="headerlink" href="#sample-commands" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">n</span> <span class="n">smruti</span> <span class="o">-</span><span class="n">p</span> <span class="mi">0480253590</span> <span class="o">-</span><span class="n">a</span> <span class="s2">&quot;4 VICTA ST&quot;</span> <span class="o">-</span><span class="n">f</span> <span class="n">csv</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above syntax inserts a record in a csv based file.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">n</span> <span class="n">smruti</span> <span class="o">-</span><span class="n">p</span> <span class="mi">0480253590</span> <span class="o">-</span><span class="n">a</span> <span class="s2">&quot;4 VICTA ST&quot;</span> <span class="o">-</span><span class="n">f</span> <span class="n">json</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above syntax inserts a record in a json based file.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above syntax queries record from json based plain db.
+-q indicates the begining of a <strong>select</strong> statement.
+-n indicates querying for the table using name predicate. The above command translates to following query.</p>
+<p><em>SELECT * from TABLE
+WHERE name = ‘smruti’ ;</em></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The select statement also supports regex characters.</p>
+<p>The above command returns all records from the table that matches the name starting with <strong>sm</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The select statement also supports multiple predicates.</p>
+<p>The above command translates to :</p>
+<p><em>SELECT ``*`` FROM table
+WHERE name = ‘smruti’
+OR
+phone = ‘480976000’;</em></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Update statement gets triggered with the selection of -e option.</p>
+<p>The above command translates to :</p>
+<blockquote>
+<div><dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>UPDATE table_name</dt><dd><p>SET name = ‘mohanty’
+WHERE name = ‘smruti’;*</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">plaindb</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#help">Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-commands">Sample Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Plain DB API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release Notes</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to plaindb’s documentation!</a></li>
+      <li>Next: <a href="api.html" title="next chapter">Plain DB API reference</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Animal Logic.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/usage.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

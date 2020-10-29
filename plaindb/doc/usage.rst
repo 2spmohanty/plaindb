@@ -1,0 +1,71 @@
+Usage
+=======================================
+
+Help
+---------------------
+
+.. command-output:: python ../plaindb/app.py -h
+
+Sample Commands
+-------------------
+
+``python plaindb/app.py -i -n smruti -p 0480253590 -a "4 VICTA ST" -f csv``
+
+.. note::
+    The above syntax inserts a record in a csv based file.
+
+
+
+``python plaindb/app.py -i -n smruti -p 0480253590 -a "4 VICTA ST" -f json``
+
+.. note::
+    The above syntax inserts a record in a json based file.
+
+
+
+``python plaindb/app.py -q -n smruti -f json``
+
+.. note::
+    The above syntax queries record from json based plain db.
+    -q indicates the begining of a **select** statement.
+    -n indicates querying for the table using name predicate. The above command translates to following query.
+
+    SELECT \* from TABLE
+    WHERE name = 'smruti' ;
+
+
+``python plaindb/app.py -q -n sm* -f json``
+
+.. note::
+    The select statement also supports regex characters.
+    The above command returns all records from the table that matches the name starting with **sm**.
+
+
+``python plaindb/app.py -q -n smruti -p 480976000 -f csv``
+
+.. note::
+    The select statement also supports multiple predicates.
+    The above command translates to :
+
+    SELECT \* FROM table
+    WHERE name = 'smruti'
+    OR
+    phone = '480976000';
+
+
+``python plaindb/app.py -e -n smruti -p mohanty -f csv``
+
+.. note::
+    The Update statement gets triggered with the selection of -e option.
+    The above command translates to :
+
+      UPDATE table_name
+      SET name = 'mohanty'
+      WHERE name = 'smruti';
+
+
+Run Tests
+-------------------
+
+```tox```
+
